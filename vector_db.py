@@ -34,4 +34,5 @@ class QuadrantStorage:
                 if text:
                     contexts.append(text)
                     sources.add(source)
-                    
+
+            return {'contexts': contexts, 'sources': list(sources)}
