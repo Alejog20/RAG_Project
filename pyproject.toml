@@ -7,7 +7,9 @@ dependencies = [
     "inngest>=0.4.22",
     "llama-index-core>=0.14.16",
     "llama-index-readers-file>=0.5.6",
+    "pydantic>=2.13.4",
     "python-dotenv>=1.2.1",
     "qdrant-client>=1.16.1",
+    "sqlalchemy>=2.0.51",
     "uvicorn>=0.39.0",
 ]

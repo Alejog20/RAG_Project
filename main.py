@@ -6,14 +6,13 @@ from dotenv import load_dotenv
 import uuid
 import os
 import datetime
-from inngest.experimental import ai
 from sqlalchemy.ext import serializer
 
 load_dotenv()
 
 inngest_client = inngest.Inngest(
     app_id='rag_app',
-    logging= logging.getLogger("uvicorn"),
+    logger= logging.getLogger("uvicorn"),
     is_production= False,
     serializer = inngest.PydanticSerializer()
 )
@@ -23,12 +22,9 @@ inngest_client = inngest.Inngest(
     trigger=inngest.TriggerEvent(event="rag/ingest_pdf")
 )
 
-
-
-
-
-
+async def rag_ingest_pdf(ctx: inngest.Context):
+    return {"hello": "world"}
 
 app=FastAPI()
 
-inngest.fast_api.serve(app, inngest_client, functions:[])
+inngest.fast_api.serve(app, inngest_client, functions=[rag_ingest_pdf])
